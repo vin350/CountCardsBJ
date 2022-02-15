@@ -37,8 +37,21 @@ function Count() {
 	let count = 0;
 	let result = document.getElementById('result')
 	cards.forEach(card => {
-		let element = document.getElementById(card)
-		count += parseInt(element.innerHTML)
+		switch (card) {
+			case '2_of_diamonds': count += parseInt(document.getElementById(card).innerHTML); break;
+			case '3_of_diamonds': count += parseInt(document.getElementById(card).innerHTML); break;
+			case '4_of_diamonds': count += parseInt(document.getElementById(card).innerHTML); break;
+			case '5_of_diamonds': count += parseInt(document.getElementById(card).innerHTML); break;
+			case '6_of_diamonds': count += parseInt(document.getElementById(card).innerHTML); break;
+			case '7_of_diamonds': count += parseInt(0); break;
+			case '8_of_diamonds': count += parseInt(0); break;
+			case '9_of_diamonds': count += parseInt(0); break;
+			case '10_of_diamonds': count += parseInt(document.getElementById(card).innerHTML) * -1; break;
+			case 'jack_of_diamonds2': count += parseInt(document.getElementById(card).innerHTML) * -1; break;
+			case 'queen_of_diamonds2': count += parseInt(document.getElementById(card).innerHTML) * -1; break;
+			case 'king_of_diamonds2': count += parseInt(document.getElementById(card).innerHTML) * -1; break;
+			case 'ace_of_diamonds': count += parseInt(document.getElementById(card).innerHTML) * -1; break;
+		}
 	})
 	result.innerHTML = parseInt(count)
 }
