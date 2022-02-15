@@ -20,7 +20,7 @@ export default function Home() {
 
 				<p className={styles.description}>
 					Developed by {' '}
-					<code className={styles.code}>vin35</code>
+					<code className={styles.code}><a href="https://github.com/vin350" target="_blank">vin35</a></code>
 				</p>
 
 				<div className={styles.grid}>
