@@ -3,6 +3,34 @@ import Image from 'next/image'
 import Link from 'next/link';
 import styles from '../styles/Count.module.css'
 
+let cards = [
+	'2_of_diamonds',
+	'3_of_diamonds',
+	'4_of_diamonds',
+	'5_of_diamonds',
+	'6_of_diamonds',
+	'7_of_diamonds',
+	'8_of_diamonds',
+	'9_of_diamonds',
+	'10_of_diamonds',
+	'jack_of_diamonds2',
+	'queen_of_diamonds2',
+	'king_of_diamonds2',
+	'ace_of_diamonds'
+];
+
+const increase = (e) =>  {
+	let element = e.target.parentElement.children[0];
+	let value = element.innerHTML
+	element.innerHTML = parseInt(value) + 1;
+}
+
+const decrease = (e) =>  {
+	let element = e.target.parentElement.children[0];
+	let value = element.innerHTML
+	element.innerHTML = parseInt(value) - 1;
+}
+
 export default function Home() {
 	return (
 		<div className={styles.container}>
@@ -19,12 +47,18 @@ export default function Home() {
 				</p>
 
 				<div className={styles.grid}>
-					<div className={styles.card}>
-						<Image src="/cards/2_of_clubs.png" alt="card" width={50} height={75} />
-						<p id='card-2'>0</p>
-						<button>+</button>
-						<button>-</button>
-					</div>
+					{cards.map(c => {
+						let src = '/cards/' + c + '.png';
+						return (
+							<div className={styles.card}>
+								<Image src={src} alt="card" width={50} height={75} />
+								<div>
+									<p id={c}>0</p>
+									<button onClick={increase} className={styles.green}>+</button>
+									<button onClick={decrease} className={styles.red}>-</button>
+								</div>
+							</div>
+					)})}
 				</div>
 
 				<div className={styles.grid}>
