@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Count.module.css'
 
 export default function Home() {
 	return (
@@ -13,27 +13,35 @@ export default function Home() {
 			</Head>
 
 			<main className={styles.main}>
-				<h1 className={styles.title}>
-					Welcome to{' '}
-					<a>Count Cards BlackJack!</a>
-				</h1>
-
 				<p className={styles.description}>
 					Developed by {' '}
 					<code className={styles.code}>vin35</code>
 				</p>
 
 				<div className={styles.grid}>
-					<Link href="/count">
+					<div className={styles.card}>
+						<Image src="/cards/2_of_clubs.png" alt="card" width={50} height={75} />
+						<p id='card-2'>0</p>
+						<button>+</button>
+						<button>-</button>
+					</div>
+				</div>
+
+				<div className={styles.grid}>
+					<div className={styles.card}>
+						<p>Result: <span id="result" className={styles.code}>0</span></p>
+					</div>
+				</div>
+
+				<div className={styles.grid}>
+					<Link href="/">
 						<a className={styles.card}>
-							<h2>Get Started &rarr;</h2>
-							<p>Get started counting cards in BlackJack.</p>
+							<h2>&larr; Back to Home</h2>
 						</a>
 					</Link>
 
-					<a href="https://en.wikipedia.org/wiki/Card_counting" target="_blank" className={styles.card}>
-						<h2>Learn &rarr;</h2>
-						<p>Learn about Count Cards in BlackJack!</p>
+					<a className={styles.card}>
+						<h2>Reset Count</h2>
 					</a>
 				</div>
 			</main>
