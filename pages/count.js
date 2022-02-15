@@ -23,12 +23,32 @@ const increase = (e) =>  {
 	let element = e.target.parentElement.children[0];
 	let value = element.innerHTML
 	element.innerHTML = parseInt(value) + 1;
+	Count()
 }
 
 const decrease = (e) =>  {
 	let element = e.target.parentElement.children[0];
 	let value = element.innerHTML
 	element.innerHTML = parseInt(value) - 1;
+	Count()
+}
+
+function Count() {
+	let count = 0;
+	let result = document.getElementById('result')
+	cards.forEach(card => {
+		let element = document.getElementById(card)
+		count += parseInt(element.innerHTML)
+	})
+	result.innerHTML = parseInt(count)
+}
+
+function ResetCount() {
+	cards.forEach(card => {
+		let element = document.getElementById(card)
+		element.innerHTML = 0
+	})
+	Count()
 }
 
 export default function Home() {
@@ -74,7 +94,7 @@ export default function Home() {
 						</a>
 					</Link>
 
-					<a className={styles.card}>
+					<a className={styles.card} onClick={ResetCount} style={{ cursor: 'pointer' }}>
 						<h2>Reset Count</h2>
 					</a>
 				</div>
