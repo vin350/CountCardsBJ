@@ -1,26 +1,49 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Link from 'next/link';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
+import { useTheme } from 'next-themes';
+import { MoonIcon, SunIcon } from '@heroicons/react/solid';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+	const { systemTheme, theme, setTheme } = useTheme();
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	const renderThemeChanger = () => {
+		if (!mounted) return null;
+
+		const currentTheme = theme === 'system' ? systemTheme : theme;
+
+		if (currentTheme === 'dark') {
+			return (
+				<SunIcon className="w-7 h-7" role="button" onClick={() => setTheme('light')} />
+			)
+		} else {
+			return (
+				<MoonIcon className="w-7 h-7" role="button" onClick={() => setTheme('dark')} />
+			)
+		}
+	}
 	return (
 		<div className={styles.container}>
-			<Head>
-				<title>Count Cards BJ</title>
-				<meta name="description" content="Site to Count Cards in BlackJack" />
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
+			<Header />
 
 			<main className={styles.main}>
+				{renderThemeChanger()}
 				<h1 className={styles.title}>
 					Welcome to{' '}
 					<a>Count Cards BlackJack!</a>
 				</h1>
 
+
 				<p className={styles.description}>
-					Developed by {' '}
-					<code className={styles.code}><a href="https://github.com/vin350" target="_blank">vin35</a></code>
+					Developed by{' '}
+					<code className="code"><a href="https://github.com/vin350" target="_blank">vin35</a></code>
 				</p>
 
 				<div className={styles.grid}>
@@ -38,18 +61,7 @@ export default function Home() {
 				</div>
 			</main>
 
-			<footer className={styles.footer}>
-				<a
-					href="https://vercel.com"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Powered by{' '}
-					<span className={styles.logo}>
-						<Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-					</span>
-				</a>
-			</footer>
+			<Footer />
 		</div>
 	)
 }

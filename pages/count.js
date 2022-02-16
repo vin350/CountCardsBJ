@@ -1,7 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../styles/Count.module.css'
+import styles from '../styles/Count.module.css';
 
 let cards = [
 	'2_of_diamonds',
@@ -19,14 +20,14 @@ let cards = [
 	'ace_of_diamonds'
 ];
 
-const increase = (e) =>  {
+const increase = (e) => {
 	let element = e.target.parentElement.children[0];
 	let value = element.innerHTML
 	element.innerHTML = parseInt(value) + 1;
 	Count()
 }
 
-const decrease = (e) =>  {
+const decrease = (e) => {
 	let element = e.target.parentElement.children[0];
 	let value = element.innerHTML
 	element.innerHTML = parseInt(value) - 1;
@@ -67,16 +68,12 @@ function ResetCount() {
 export default function Home() {
 	return (
 		<div className={styles.container}>
-			<Head>
-				<title>Count Cards BJ</title>
-				<meta name="description" content="Site to Count Cards in BlackJack" />
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
+			<Header />
 
 			<main className={styles.main}>
 				<p className={styles.description}>
 					Developed by {' '}
-					<code className={styles.code}><a href="https://github.com/vin350" target="_blank">vin35</a></code>
+					<code className="code"><a href="https://github.com/vin350" target="_blank">vin35</a></code>
 				</p>
 
 				<div className={styles.grid}>
@@ -84,14 +81,17 @@ export default function Home() {
 						let src = '/cards/' + c + '.png';
 						return (
 							<div className={styles.card}>
-								<Image src={src} alt="card" width={50} height={75} />
+								<div className="flex justify-center">
+									<Image src={src} alt="card" width={50} height={75} />
+								</div>
 								<div>
-									<p id={c}>0</p>
-									<button onClick={increase} className={styles.green}>+</button>
-									<button onClick={decrease} className={styles.red}>-</button>
+									<p id={c} className="text-center">0</p>
+									<button onClick={increase} className={styles.btn_green}>+</button>
+									<button onClick={decrease} className={styles.btn_red}>-</button>
 								</div>
 							</div>
-					)})}
+						)
+					})}
 				</div>
 
 				<div className={styles.grid}>
@@ -113,18 +113,7 @@ export default function Home() {
 				</div>
 			</main>
 
-			<footer className={styles.footer}>
-				<a
-					href="https://vercel.com"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Powered by{' '}
-					<span className={styles.logo}>
-						<Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-					</span>
-				</a>
-			</footer>
+			<Footer />
 		</div>
 	)
 }

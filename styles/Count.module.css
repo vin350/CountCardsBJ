@@ -12,22 +12,6 @@
     align-items: center;
 }
 
-.footer {
-    display: flex;
-    flex: 1;
-    padding: 2rem 0;
-    border-top: 1px solid #eaeaea;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-}
-
 .title a {
     color: #0070f3;
     text-decoration: none;
@@ -54,14 +38,6 @@
     margin: 1rem 0;
     line-height: 1;
     font-size: 1rem;
-}
-
-.code {
-    background: #fafafa;
-    border-radius: 5px;
-    padding: 0.5rem;
-    font-size: 1.1rem;
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 .grid {
@@ -102,11 +78,6 @@
     line-height: 1.5;
 }
 
-.logo {
-    height: 1em;
-    margin-left: 0.5rem;
-}
-
 @media (max-width: 600px) {
     .grid {
         width: 100%;
@@ -114,52 +85,17 @@
     }
 }
 
-.button {
-    background-color: #4d4d4d;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
+.btn_green {
+    @apply font-bold px-2 rounded;
+    @apply bg-green-500 text-white;
+    @apply hover:bg-green-700;
+    @apply w-7;
+    margin-right: 5px;
 }
 
-.green {
-    background-color: white;
-    color: black;
-    border: 2px solid #4CAF50;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-
-.green:hover {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.red {
-    background-color: white;
-    color: black;
-    border: 2px solid #f44336;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-
-.red:hover {
-    background-color: #f44336;
-    color: white;
+.btn_red {
+    @apply font-bold px-2 rounded;
+    @apply bg-red-500 text-white;
+    @apply hover:bg-red-700;
+    @apply w-7;
 }

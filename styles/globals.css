@@ -13,3 +13,50 @@ a {
 * {
     box-sizing: border-box;
 }
+
+.logo {
+    height: 1em;
+    margin-left: 0.5rem;
+}
+
+.footer {
+    display: flex;
+    flex: 1;
+    padding: 2rem 0;
+    border-top: 1px solid #eaeaea;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.code {
+    background: #e6e6e6;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply dark:bg-gray-900 dark:text-gray-100;
+    }
+
+    .code {
+        @apply dark:bg-gray-800;
+    }
+
+    .logo {
+        @apply dark:invert;
+    }
+}
