@@ -30,7 +30,7 @@ const increase = (e) => {
 const decrease = (e) => {
 	let element = e.target.parentElement.children[0];
 	let value = element.innerHTML
-	element.innerHTML = parseInt(value) - 1;
+	element.innerHTML = parseInt(value) == 0 ? 0 : parseInt(value) - 1;
 	Count()
 }
 
