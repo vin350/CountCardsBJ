@@ -20,6 +20,10 @@ let cards = [
 	'ace_of_diamonds'
 ];
 
+const round = (num, places) => {
+	return +(parseFloat(num).toFixed(places));
+}
+
 const increase = (e) => {
 	let element = e.target.parentElement.children[0];
 	let value = element.innerHTML
@@ -37,6 +41,8 @@ const decrease = (e) => {
 function Count() {
 	let count = 0;
 	let result = document.getElementById('result')
+	let decks = document.getElementById('decks').value;
+
 	cards.forEach(card => {
 		switch (card) {
 			case '2_of_diamonds': count += parseInt(document.getElementById(card).innerHTML); break;
@@ -54,7 +60,8 @@ function Count() {
 			case 'ace_of_diamonds': count += parseInt(document.getElementById(card).innerHTML) * -1; break;
 		}
 	})
-	result.innerHTML = parseInt(count)
+
+	result.innerHTML = decks == '' ? parseInt(count) : round(parseInt(count) / parseInt(decks), 1);
 }
 
 function ResetCount() {
@@ -96,7 +103,13 @@ export default function Home() {
 
 				<div className={styles.grid}>
 					<div className={styles.card}>
-						<p>Result: <span id="result" className={styles.code}>0</span></p>
+						<p>Decks: <input
+							type="number" min="1" max="12" placeholder="1" id="decks"
+							className="input decks"></input></p>
+					</div>
+
+					<div className={styles.card}>
+						<p>Result: <span id="result" className="code">0</span></p>
 					</div>
 				</div>
 

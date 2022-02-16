@@ -39,8 +39,14 @@ a {
     background: #e6e6e6;
     border-radius: 5px;
     padding: 0.5rem;
+    padding-bottom: 0.3rem;
     font-size: 1.1rem;
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.input {
+    border-radius: 5px;
+    background: #e6e6e6
 }
 
 @tailwind base;
@@ -52,11 +58,19 @@ a {
         @apply dark:bg-gray-900 dark:text-gray-100;
     }
 
+    .logo {
+        @apply dark:invert;
+    }
+
     .code {
         @apply dark:bg-gray-800;
     }
 
-    .logo {
-        @apply dark:invert;
+    .input {
+        @apply dark:bg-gray-800;
+    }
+
+    .decks {
+        @apply text-center w-10;
     }
 }
