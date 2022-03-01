@@ -1,3 +1,4 @@
+import ViewSource from '../components/view-source'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Image from 'next/image';
@@ -76,6 +77,7 @@ export default function Home() {
 	return (
 		<div className={styles.container}>
 			<Header />
+			<ViewSource />
 
 			<main className={styles.main}>
 				<p className={styles.description}>
@@ -87,9 +89,9 @@ export default function Home() {
 					{cards.map(c => {
 						let src = '/cards/' + c + '.png';
 						return (
-							<div className={styles.card}>
+							<div className={styles.card} key={c}>
 								<div className="flex justify-center">
-									<Image src={src} alt="card" width={50} height={75} />
+									<Image src={src} alt="card" width={50} height={75} priority />
 								</div>
 								<div>
 									<p id={c} className="text-center">0</p>
