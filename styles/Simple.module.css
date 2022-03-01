@@ -91,7 +91,7 @@
     @apply w-14 h-14;
     @apply flex justify-center items-center;
     font-family: sans-serif;
-    margin-right: 10px;
+    margin: 5px;
 }
 
 .btn_red {
@@ -101,4 +101,5 @@
     @apply w-14 h-14;
     @apply flex justify-center items-center;
     font-family: sans-serif;
+    margin: 5px;
 }

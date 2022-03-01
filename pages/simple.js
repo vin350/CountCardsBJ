@@ -35,7 +35,7 @@ export default function Home() {
 					<code className="code"><a href="https://github.com/vin350" target="_blank">vin35</a></code>
 				</p>
 
-				<div className={styles.grid}>
+				<div className="inline-flex">
 					<button onClick={increase} className={styles.btn_green}><PlusIcon /></button>
 					<button onClick={decrease} className={styles.btn_red}><MinusIcon /></button>
 				</div>
