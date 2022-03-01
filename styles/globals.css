@@ -58,8 +58,12 @@ a {
         @apply dark:bg-gray-900 dark:text-gray-100;
     }
 
-    .logo {
+    .invert-black {
         @apply dark:invert;
+    }
+
+    .invert-white {
+        @apply invert dark:invert-0;
     }
 
     .code {

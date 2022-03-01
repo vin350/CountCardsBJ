@@ -7,7 +7,7 @@ const ViewSource = () => (
         height="80"
         viewBox="0 0 250 250"
         fill="#151513"
-        className={svg}
+        className={`${svg} invert-white`}
     >
         <a
             title="View Source"

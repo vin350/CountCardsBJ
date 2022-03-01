@@ -9,7 +9,7 @@ function Footer() {
                 rel="noopener noreferrer"
             >
                 Powered by{' '}
-                <span className={"logo"}>
+                <span className={"logo invert-black"}>
                     <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
                 </span>
             </a>

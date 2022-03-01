@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Count.module.css';
+import { PlusIcon, MinusIcon } from '@heroicons/react/solid';
 
 let cards = [
 	'2_of_diamonds',
@@ -95,8 +96,8 @@ export default function Home() {
 								</div>
 								<div>
 									<p id={c} className="text-center">0</p>
-									<button onClick={increase} className={styles.btn_green}>+</button>
-									<button onClick={decrease} className={styles.btn_red}>-</button>
+									<button onClick={increase} className={styles.btn_green}><PlusIcon style={{ 'pointer-events': 'none'}} /></button>
+									<button onClick={decrease} className={styles.btn_red}><MinusIcon style={{ 'pointer-events': 'none'}} /></button>
 								</div>
 							</div>
 						)
@@ -125,6 +126,12 @@ export default function Home() {
 					<a className={styles.card} onClick={ResetCount} style={{ cursor: 'pointer' }}>
 						<h2>Reset Count</h2>
 					</a>
+
+					<Link href="/simple">
+						<a className={styles.card}>
+							<h2>Simple Mode &rarr;</h2>
+						</a>
+					</Link>
 				</div>
 			</main>
 
