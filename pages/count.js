@@ -96,8 +96,8 @@ export default function Home() {
 								</div>
 								<div>
 									<p id={c} className="text-center">0</p>
-									<button onClick={increase} className={styles.btn_green}><PlusIcon style={{ 'pointer-events': 'none'}} /></button>
-									<button onClick={decrease} className={styles.btn_red}><MinusIcon style={{ 'pointer-events': 'none'}} /></button>
+									<button onClick={increase} className={styles.btn_green}><PlusIcon className={'pointer-none'} /></button>
+									<button onClick={decrease} className={styles.btn_red}><MinusIcon className={'pointer-none'} /></button>
 								</div>
 							</div>
 						)

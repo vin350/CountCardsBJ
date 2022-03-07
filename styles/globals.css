@@ -49,6 +49,10 @@ a {
     background: #e6e6e6
 }
 
+.pointer-none {
+    pointer-events: none;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -76,5 +80,9 @@ a {
 
     .decks {
         @apply text-center w-10;
+    }
+
+    .balance {
+        @apply text-center w-20;
     }
 }

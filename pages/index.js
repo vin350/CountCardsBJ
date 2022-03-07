@@ -56,6 +56,13 @@ export default function Home() {
 						</a>
 					</Link>
 
+					<Link href="/MartinGale">
+						<a className={styles.card}>
+							<h2>MartinGale &rarr;</h2>
+							<p>MartinGale Calculator. To compensate your loss.</p>
+						</a>
+					</Link>
+
 					<a href="https://en.wikipedia.org/wiki/Card_counting" target="_blank" className={styles.card}>
 						<h2>Learn &rarr;</h2>
 						<p>Learn about Count Cards in BlackJack!</p>
