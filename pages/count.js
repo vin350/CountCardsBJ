@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Count.module.css';
 import { PlusIcon, MinusIcon } from '@heroicons/react/solid';
+import { motion } from 'framer-motion';
+import * as motionConfig from '../components/motionConfig';
 
 let cards = [
 	'2_of_diamonds',
@@ -76,66 +78,106 @@ function ResetCount() {
 
 export default function Home() {
 	return (
-		<div className={styles.container}>
-			<Header />
-			<ViewSource />
+		<motion.div initial='initial' animate='animate' exit={{ opacity: 0 }}>
+			<div className={styles.container}>
+				<Header />
+				<ViewSource />
 
-			<main className={styles.main}>
-				<p className={styles.description}>
-					Developed by {' '}
-					<code className="code"><a href="https://github.com/vin350" target="_blank">vin35</a></code>
-				</p>
+				<main className={styles.main}>
+					<motion.div
+						animate={{ opacity: 1 }}
+						initial={{ opacity: 0 }}
+					>
+						<p className={styles.description}>
+							Developed by {' '}
+							<code className="code"><a href="https://github.com/vin350" target="_blank">vin35</a></code>
+						</p>
+					</motion.div>
 
-				<div className={styles.grid}>
-					{cards.map(c => {
-						let src = '/cards/' + c + '.png';
-						return (
-							<div className={styles.card} key={c}>
-								<div className="flex justify-center">
-									<Image src={src} alt="card" width={50} height={75} priority />
-								</div>
-								<div>
-									<p id={c} className="text-center">0</p>
-									<button onClick={increase} className={styles.btn_green}><PlusIcon className={'pointer-none'} /></button>
-									<button onClick={decrease} className={styles.btn_red}><MinusIcon className={'pointer-none'} /></button>
-								</div>
-							</div>
-						)
-					})}
-				</div>
+					<motion.div variants={motionConfig.staggerCards} className={styles.grid}>
+						{cards.map(c => {
+							let src = '/cards/' + c + '.png';
+							return (
+								<motion.div
+									variants={motionConfig.fadeInUp}
+									whileHover={{ scale: 1.05 }}
+									whileTap={{ scale: 0.95 }}
+								>
+									<div className={styles.card} key={c}>
+										<div className="flex justify-center">
+											<Image src={src} alt="card" width={50} height={75} priority />
+										</div>
+										<div>
+											<p id={c} className="text-center">0</p>
+											<button onClick={increase} className={styles.btn_green}><PlusIcon className={'pointer-none'} /></button>
+											<button onClick={decrease} className={styles.btn_red}><MinusIcon className={'pointer-none'} /></button>
+										</div>
+									</div>
+								</motion.div>
+							)
+						})}
+					</motion.div>
 
-				<div className={styles.grid}>
-					<div className={styles.card}>
-						<p>Decks: <input
-							type="number" min="1" max="12" placeholder="1" id="decks"
-							className="input decks"></input></p>
-					</div>
+					<motion.div variants={motionConfig.stagger} className={styles.grid}>
+						<motion.div
+							variants={motionConfig.fadeInUp}
+							whileHover={{ scale: 1.05 }}
+							whileTap={{ scale: 0.95 }}
+							className={styles.card}
+						>
+							<p>Decks: <input
+								type="number" min="1" max="12" placeholder="1" id="decks"
+								className="input decks"></input></p>
+						</motion.div>
 
-					<div className={styles.card}>
-						<p>Result: <span id="result" className="code">0</span></p>
-					</div>
-				</div>
+						<motion.div
+							variants={motionConfig.fadeInUp}
+							whileHover={{ scale: 1.05 }}
+							whileTap={{ scale: 0.95 }}
+							className={styles.card}
+						>
+							<p>Result: <span id="result" className="code">0</span></p>
+						</motion.div>
+					</motion.div>
 
-				<div className={styles.grid}>
-					<Link href="/">
-						<a className={styles.card}>
-							<h2>&larr; Back to Home</h2>
-						</a>
-					</Link>
+					<motion.div variants={motionConfig.stagger} className={styles.grid}>
+						<Link href="/">
+							<motion.a
+								variants={motionConfig.fadeInUp}
+								whileHover={{ scale: 1.05 }}
+								whileTap={{ scale: 0.95 }}
+								className={styles.card}
+							>
+								<h2>&larr; Back to Home</h2>
+							</motion.a>
+						</Link>
 
-					<a className={styles.card} onClick={ResetCount} style={{ cursor: 'pointer' }}>
-						<h2>Reset Count</h2>
-					</a>
+						<motion.a
+							variants={motionConfig.fadeInUp}
+							whileHover={{ scale: 1.05 }}
+							whileTap={{ scale: 0.95 }}
+							className={styles.card}
+							onClick={ResetCount}
+							style={{ cursor: 'pointer' }}
+						>
+							<h2>Reset Count</h2>
+						</motion.a>
 
-					<Link href="/simple">
-						<a className={styles.card}>
-							<h2>Simple Mode &rarr;</h2>
-						</a>
-					</Link>
-				</div>
-			</main>
+						<Link href="/simple">
+							<motion.a
+								variants={motionConfig.fadeInUp}
+								whileHover={{ scale: 1.05 }}
+								whileTap={{ scale: 0.95 }}
+								className={styles.card}
+							>
+								<h2>Simple Mode &rarr;</h2>
+							</motion.a>
+						</Link>
+					</motion.div>
+				</main>
 
-			<Footer />
-		</div>
+				<Footer />
+			</div>
+		</motion.div>
 	)
 }
