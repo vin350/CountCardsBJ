@@ -102,8 +102,9 @@ export default function Home() {
 									variants={motionConfig.fadeInUp}
 									whileHover={{ scale: 1.05 }}
 									whileTap={{ scale: 0.95 }}
+									key={c}
 								>
-									<div className={styles.card} key={c}>
+									<div className={styles.card}>
 										<div className="flex justify-center">
 											<Image src={src} alt="card" width={50} height={75} priority />
 										</div>
